@@ -48,7 +48,7 @@ st.markdown("""
 st.markdown('<p class="title-text"> </p>', unsafe_allow_html=True)
 
 # Sidebar - Stage 01
-st.sidebar.image(r"C:\Users\ashraf.mahdy\Downloads\ITS\images.png", width=380)
+st.sidebar.image(r"images.png", width=380)
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True) # Help to remove white space above Header
 st.sidebar.header("📊 ITS Financial Analysis", divider = 'violet')
 
@@ -97,7 +97,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "celar_on_submit" to r
             options=["0.0", "0.50", "0.75", "1.00"], width="medium", required= True)}, height=250, num_rows="dynamic")
     
     # Read Existed Database to append on it
-    Database = pd.read_csv(r"C:\Users\ashraf.mahdy\Downloads\ITS\Data_Store.csv")
+    Database = pd.read_csv(r"Data_Store.csv")
     # Append the edited data to the existing database
     database_without_calculations = pd.concat([Database, edited_data], ignore_index=True)
     # Apply Calculations to get targeted columns
@@ -140,7 +140,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "celar_on_submit" to r
         with st.spinner('Wait for it...'):
             time.sleep(5)
         # Export Final database to the CSV file
-        database_without_calculations.to_csv(r"C:\Users\ashraf.mahdy\Downloads\ITS\Data_Store.csv", index=False)
+        database_without_calculations.to_csv(r"Data_Store.csv", index=False)
         edited_data = edited_data.drop(edited_data.index) # Data may be duplicated after submit without inserting new values, but duplication will be removed  as soon as rerun
         st.success("Congratulation, Your Data have been already submitted!")     
     else:
@@ -148,7 +148,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "celar_on_submit" to r
 
 # Show Updated Database
 st.subheader("Existed Database")
-Updated_Database = pd.read_csv(r"C:\Users\ashraf.mahdy\Downloads\ITS\Data_Store.csv")
+Updated_Database = pd.read_csv(r"Data_Store.csv")
 Updated_Database
 
 # sbt, rst = st.columns(2)
@@ -252,7 +252,7 @@ if btn6.button("Ignore Nulls"):
 if __name__ == "__main__":
     main()
 
-Updated_Database.to_csv(r"C:\Users\ashraf.mahdy\Downloads\ITS\Data_Store.csv", index=False) 
+Updated_Database.to_csv(r"Data_Store.csv", index=False) 
 
 st.divider()
 # Creating Metrics Cards
@@ -271,7 +271,7 @@ if "All" in road_selector:
 filtered_road_data = Updated_Database[Updated_Database['Road'].isin(road_selector)] # Vertical Filtering
 
 # Redefine updated Updated_Database as below filteration can not be applied on non defined because all variables inside with form cannot be global
-Updated_Database= pd.read_csv(r"C:\Users\ashraf.mahdy\Downloads\ITS\Data_Store.csv")
+Updated_Database= pd.read_csv(r"Data_Store.csv")
 
 a1_metric_value = filtered_road_data['BAC = Budget @ Completion (EGP)'] # Horizontal Filtering
 a2_metric_value = filtered_road_data['AC = Actual_Cost_To_Date(EGP)'] # Horizontal Filtering
