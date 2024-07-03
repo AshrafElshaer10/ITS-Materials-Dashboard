@@ -55,7 +55,7 @@ st.sidebar.header("📊 ITS Financial Analysis", divider = 'violet')
 st.subheader("Please Insert Your Materials Data [:red[Kindly check your inputs carefully before 'Submit']]:", divider='red') 
 
 # Create a form
-with st.form(key ="input_form", clear_on_submit= True): # "celar_on_submit" to remove inserted values & be ready for new vlaues
+with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to remove inserted values & be ready for new vlaues
     # Creating Database Format
     Database = pd.DataFrame(index = None, columns=['Date/Time', 'Description', 'Part No.', 'Unit', 'Trade', 'Clause', 'Brand', 'Origin', 'Road', 'Location', 
                                                 'Progress (%)', 'QTY._As _Per_Contract', 'BAC = Budget @ Completion (EGP)','Actual_QTY.', 'Actual_Unit_Cost(EGP)',
@@ -66,36 +66,37 @@ with st.form(key ="input_form", clear_on_submit= True): # "celar_on_submit" to r
                                                                                                                 'Road','Location']].astype(str)
     Database[['QTY._As _Per_Contract','Actual_QTY.','Actual_Unit_Cost(EGP)', 'Targeted_Unit_Sale(EGP)', 'BAC = Budget @ Completion (EGP)','Progress (%)']] = Database[['QTY._As _Per_Contract','Actual_QTY.','Actual_Unit_Cost(EGP)', 'Targeted_Unit_Sale(EGP)', 'BAC = Budget @ Completion (EGP)','Progress (%)']].astype(float)
 
-    # Converting some attributes to a limited drop down list for unification purpose to act as user input
-    edited_data = st.data_editor(Database, column_config={
+    # Converting some attributes to a limited drop down list for validation purpose to act as user input
+    edited_data = st.data_editor(Database, column_config={        
             "Trade": st.column_config.SelectboxColumn(
             options=["Electrical System", "Structure Cabling", "TMS", "Network System", "CCTV System", "Light Current System",
-                     "HVAC System", "Monitoring System", "Video Wall System", "Furniture", "TCS"], width="medium", required= True),
+                     "HVAC System", "Monitoring System", "Video Wall System", "Furniture", "TCS"], width="medium"),
             "Unit": st.column_config.SelectboxColumn(
-            options=["Mtr.", "PC."], width="medium", required= True),
+            options=["Mtr.", "PC."], width="medium"),
             "Clause": st.column_config.SelectboxColumn(
             options=["PWR Cables", "1st Fix devices", "3rd Fix devices", "PWR Cable Trays", "Data Cable Trays", "Elec. Panels", "Raceways", "Earthing",
                      "Gen. Set", "TMS", "IP telephones", "Netwrok", "Data Racks", "Data Cables & accessories", "CCTV", "Fire Alarm",
                      "Fire Fighting", "Access Control", "HVAC", "Work Station", "Video Wall", "Furniture", "UPS", "Structure Cabling", 
-                     "EMT Devices", "Infrastructure", "TCS"], width="medium", required= True),
+                     "EMT Devices", "Infrastructure", "TCS"], width="medium"),
             "Brand": st.column_config.SelectboxColumn(
             options=["Elsewedy Cables", "New Ega", "Legrand", "Egytray", "Lectro", "Elsharif", "Local", "Erico - Mega Electric",
                      "kohler - Tawakol", "AUTOSTRADA", "AVAYA", "Huawei", "PANDUIT", "AXIS", "SUPREMA", "CARRIER",
                      "DELL", "BARCO", "BARCO Intertech", "KIT DISPLAY", "Multinet/Corning", "Alex - Future Electric", "ABB", "NASSAR TECH", 
-                     "ITALY", "SHALON", "POS EGYPT","AUTOSTRADA / Other", "CORNING / PANDUIT", "CORNING","ASF / GHAZALA", "NOVO", "3am Gerges", "CAIRO", "Cardinal"], width="medium", required= True),
+                     "ITALY", "SHALON", "POS EGYPT","AUTOSTRADA / Other", "CORNING / PANDUIT", "CORNING","ASF / GHAZALA", "NOVO", "3am Gerges", "CAIRO", "Cardinal"], width="medium"),
             "Origin": st.column_config.SelectboxColumn(
-            options=["Local", "Foreign"], width="medium", required= True),
+            options=["Local", "Foreign"], width="medium"),
             "Road": st.column_config.SelectboxColumn(
-            options=["Shobra Benha", "Cairo Ismailia", "Cairo Sokhna", "Cairo Suez", "Cairo Alex", "Regional Ring Road", "Ring Road", "Middle Ring Road"], width="medium", required= True),
+            options=["Shobra Benha", "Cairo Ismailia", "Cairo Sokhna", "Cairo Suez", "Cairo Alex", "Regional Ring Road", "Ring Road", "Middle Ring Road"], width="medium"),
             "Location": st.column_config.SelectboxColumn(
             options=["General", "RCP-01 Room", "RCP-02 Room", "Sever Room", "TMP Room", "Module A 3 lanes", "Module A 4 lanes", "Module A 5 lanes",
                      "Module A 6 lanes", "Module A 7 lanes", "Module A 8 lanes", "Module A 9 lanes", "Module A 10 lanes", "Module A 11 lanes", "T1: WiM (1-lane) + Module A", 
                      "T2: WiM (2-lane) + Module A", "T3: WiM (3-lane) + Module A", "A4: WiM (2-lane) + Module A for 4 lanes", "A4: WiM (4-lane) + Module A for 4 lanes",
                      "A5: WiM (2-lane) + Module A for 5 lanes", "A5: WiM (5-lane) + Module A for 5 lanes", "A6: WiM (2-lane) + Module A for 6 lanes", "A6: WiM (6-lane) + Module A for 6 lanes"
-                     "A7: WiM (7-lane) + Module A for 7 lanes", "Poles", "Toll Plaza"], width="medium", required= True),
+                     "A7: WiM (7-lane) + Module A for 7 lanes", "Poles", "Toll Plaza"], width="medium"),
             "Progress (%)": st.column_config.SelectboxColumn(
-            options=["0.0", "0.50", "0.75", "1.00"], width="medium", required= True)}, height=250, num_rows="dynamic")
-    
+            options=["0.0", "0.50", "0.75", "1.00"], width="medium"), # All above was configured columns with drop down list, "required" parameter set to "True" to prevent adding records with null values. 
+            }, height=250, num_rows="dynamic")
+          
     # Read Existed Database to append on it
     Database = pd.read_csv(r"Data_Store.csv")
     # Append the edited data to the existing database
@@ -139,30 +140,55 @@ with st.form(key ="input_form", clear_on_submit= True): # "celar_on_submit" to r
     if Submit:
         with st.spinner('Wait for it...'):
             time.sleep(5)
-        # Export Final database to the CSV file
-        database_without_calculations.to_csv(r"Data_Store.csv", index=False)
-        edited_data = edited_data.drop(edited_data.index) # Data may be duplicated after submit without inserting new values, but duplication will be removed  as soon as rerun
-        st.success("Congratulation, Your Data have been already submitted!")     
+        # Validate the edited data
+        if (edited_data['Date/Time'].isna().any() or
+            edited_data['Description'].isna().any() or
+            edited_data['Part No.'].isna().any() or
+            edited_data['Unit'].isna().any() or
+            edited_data['Trade'].isna().any() or
+            edited_data['Clause'].isna().any() or
+            edited_data['Brand'].isna().any() or
+            edited_data['Origin'].isna().any() or
+            edited_data['Road'].isna().any() or
+            edited_data['Location'].isna().any() or
+            edited_data['Progress (%)'].isna().any() or
+            edited_data['QTY._As _Per_Contract'].isna().any() or
+            edited_data['BAC = Budget @ Completion (EGP)'].isna().any() or
+            edited_data['Actual_QTY.'].isna().any() or
+            edited_data['Actual_Unit_Cost(EGP)'].isna().any() or
+            edited_data['Targeted_Unit_Sale(EGP)'].isna().any()):
+            st.warning("Please fill-in all missing fields as shown below, without fullfilling all values it cannot be submitted!")
+            null_rows = edited_data[edited_data.isnull().any(axis=1)]
+
+            # Conditional formatting for "None" values
+            def format_none(val):
+                if val is None:
+                    return 'background-color: rgba(210, 109, 109, 1); color: rgba(0, 0, 0, 0)'
+                else:
+                    return ''
+            # Apply the conditional formatting to the DataFrame
+            styled_null_rows = null_rows.style.applymap(format_none)
+
+            # Display the styled DataFrame
+            st.write(styled_null_rows, unsafe_allow_html=True)
+
+        else:
+            # Export Final database to the CSV file
+            database_without_calculations.to_csv(r"Data_Store.csv", index=False)
+            # edited_data = edited_data.drop(edited_data.index) # Data may be duplicated after submit without inserting new values, but duplication will be removed as soon as rerun
+            st.success("Congratulation, Your Data have been already submitted!")     
     else:
-        st.info("Please Insert New Data & Submit!")
+        st.info("Please Insert New Data, then press 'Submit'")
 
 # Show Updated Database
 st.subheader("Existed Database")
 Updated_Database = pd.read_csv(r"Data_Store.csv")
 Updated_Database
 
-# sbt, rst = st.columns(2)
-
-# if sbt.button("Submit", on_click=callback):
-
-#        st.session_state.Button_Clicked = False
-#        edited_data = Database.copy()  # Reset the edited_data table to the original state
-#        st.data_editor(edited_data, key=unique_key)  # Update the DataFrameEditor widget with the reset data
-
 # Exploration & Cleaning Stage
-## define functions to for show, remove or ignore duplications once called
 st.header("Duplicated Records Exploration & Cleaning Stage:", divider= 'red')
 
+## define functions to for show, remove or ignore duplications once called
 def show_duplicates():
     st.warning("Please check the below duplicated values before dropping (if required):")
     duplicates = Updated_Database[Updated_Database.duplicated(keep = False, subset=['Description', 'Part No.', 'Unit', 'Trade', 'Clause', 'Brand', 
@@ -172,89 +198,56 @@ def show_duplicates():
 
 def drop_duplicates():
     global Updated_Database
-    Updated_Database = Updated_Database.drop_duplicates(keep = 'last', subset=['Description', 'Part No.', 'Unit', 'Trade', 'Clause', 'Brand', 
-                                                                                'Origin', 'Road', 'Location', 'Progress (%)', 'QTY._As _Per_Contract', 
-                                                                                'BAC = Budget @ Completion (EGP)','Actual_QTY.', 'Actual_Unit_Cost(EGP)', 
-                                                                                'Targeted_Unit_Sale(EGP)'])
-    st.success("Congratulation, All duplicated values had been removed!, Please check below:")
-    st.write(Updated_Database)
-
-def ignore():
-    st.warning("Ignoring Duplication Removal for Database:")
-    st.write(Updated_Database)
+    duplicates = Updated_Database[Updated_Database.duplicated(keep = False, subset=['Description', 'Part No.', 'Unit', 'Trade', 'Clause', 'Brand', 
+                                    'Origin', 'Road', 'Location', 'Progress (%)', 'QTY._As _Per_Contract', 'BAC = Budget @ Completion (EGP)',
+                                    'Actual_QTY.', 'Actual_Unit_Cost(EGP)', 'Targeted_Unit_Sale(EGP)'])]    
+    
+    # Add a checkbox column to the duplicates DataFrame
+    duplicates['Select'] = False
+    
+    # Display the duplicates DataFrame with the checkbox column
+    selected_rows = st.data_editor(duplicates, column_order = ('Select','Date/Time','Description', 'Part No.', 'Unit', 'Trade', 'Clause', 'Brand', 
+                                    'Origin', 'Road', 'Location', 'Progress (%)', 'QTY._As _Per_Contract', 'BAC = Budget @ Completion (EGP)',
+                                    'Actual_QTY.', 'Actual_Unit_Cost(EGP)', 'Targeted_Unit_Sale(EGP)'),   column_config={"Select": st.column_config.CheckboxColumn("Duplicated_Records",
+                                                                help="Select your Duplicated columns needs to be **dropped**",
+                                                                default=False)},hide_index=False)
+    # Get the selected rows
+    selected_indexes = selected_rows[selected_rows['Select']].index.tolist()
+    
+    
+    if st.button('Drop Selected Rows'):
+        # Drop the selected rows from the original Updated_Database
+        Updated_Database = Updated_Database.drop(selected_indexes)
+        st.success("Congratulation, All duplicated values had been removed!, Please check below:")
+        st.write('Updated Database after removal:')
+        st.write(Updated_Database)    
+        return Updated_Database   
+    return Updated_Database
 
 def main():
+    global Updated_Database
     if 'button_clicked' not in st.session_state:
         st.session_state.button_clicked = None
-        
+                
     if st.session_state.button_clicked == 'Show_Duplicates':
         show_duplicates()
     elif st.session_state.button_clicked == 'Drop_duplicates':
         drop_duplicates()
-    elif st.session_state.button_clicked == 'Ignore':
-        ignore()
 
 btn1, btn2, btn3 = st.columns(3)
 if btn1.button("Show Duplicates"):
     st.session_state.button_clicked = 'Show_Duplicates'
 
-if btn2.button("Drop Duplicates"):
+if btn2.button("Select Duplicates need to be removed"):
     st.session_state.button_clicked = 'Drop_duplicates'
-
-if btn3.button("Ignore Duplicates"):
-    st.session_state.button_clicked = 'Ignore'
 
 if __name__ == "__main__":
     main()
 
 st.divider()
-# Null Records Check
-## define functions to for show, remove or ignore nulls once called
-st.header("Null Records Exploration & Cleaning Stage:", divider= 'red')
-
-def show_nulls():
-    st.warning("Please check the below Null values before dropping (if required):")
-    null_rows = Updated_Database[Updated_Database.isnull().any(axis=1)]
-    st.write(null_rows)
-
-def drop_nulls():
-    st.write("Dropping rows with null values...")
-    global Updated_Database
-    Updated_Database = Updated_Database.dropna()
-    st.success("Congratulation, All rows with null values had been removed!, Please check below:")
-    st.write(Updated_Database)
-
-def ignore_nulls():
-    st.warning("Ignoring Removal for Null values:")
-    st.write(Updated_Database)
-
-def main():
-    if 'button_clicked' not in st.session_state:
-        st.session_state.button_clicked = None
-
-    if st.session_state.button_clicked == 'Show_Nulls':
-        show_nulls()
-    elif st.session_state.button_clicked == 'Drop_Nulls':
-        drop_nulls()
-    elif st.session_state.button_clicked == 'Ignore_Nulls':
-        ignore_nulls()
-
-btn4, btn5, btn6 = st.columns(3)
-if btn4.button("Show Nulls"):
-    st.session_state.button_clicked = 'Show_Nulls'
-
-if btn5.button("Drop Nulls"):
-    st.session_state.button_clicked = 'Drop_Nulls'
-
-if btn6.button("Ignore Nulls"):
-    st.session_state.button_clicked = 'Ignore_Nulls'
-
-if __name__ == "__main__":
-    main()
 
 Updated_Database.to_csv(r"Data_Store.csv", index=False) 
 
-st.divider()
 # Creating Metrics Cards
 st.header("Project Metrics & KPI's", divider = 'red')
 # Define Roads selector to show metrics on one or more roads
@@ -347,11 +340,11 @@ fig7 = go.Figure(go.Indicator(
     value=Updated_Database['Actual_To_Date_Profit (EGP)'].sum(),
     mode="gauge+number+delta",
     title={'text': "Overall Profit Indicator",
-           'font_size': 30,
+           'font_size': 40,
            'font_color': 'white'},
     delta={'reference': Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum()},
     number= {'font_color':'green',
-             'font_size': 30},
+             'font_size': 40},
     gauge={'axis': {'range': [None, Updated_Database['BAC = Budget @ Completion (EGP)'].sum()]},
            'steps': [{'range': [0, Updated_Database['Total_Expected_Gross_Profit(EGP)'].sum()], 'color': "lightgray"}],
            'threshold': {'line': {'color': "red", 'width': 4}, 'thickness': 0.75,
@@ -363,14 +356,14 @@ fig7.add_trace(go.Indicator(
     value=Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum(),
     delta={'reference': Updated_Database['BAC = Budget @ Completion (EGP)'].sum()},
     number= {'font_color':'red',
-             'font_size': 30},
+             'font_size': 35},
     domain={'x': [0.6 , 0.95], 'y': [0.35 , 0.9]},
     name='Total_Targeted_Gross_Profit(EGP)'))
 
 fig7.add_trace(go.Indicator(
     value=Updated_Database['BAC = Budget @ Completion (EGP)'].sum(),
     number= {'font_color':'white',
-             'font_size': 30},
+             'font_size': 35},
     domain={'x': [0.75 , 0.9], 'y': [0.15, 0.5]},
     name='BAC = Budget @ Completion (EGP)'))
 
@@ -425,7 +418,7 @@ image3 = draw_rounded_rect(100, 5, 0, CP3_color)
 
 # Display the images in the sidebar
 with st.sidebar:
-    st.header("🚥 Legend:", divider='violet')
+    st.header("🚥 Profit Indicator Legend:", divider='violet')
     col1, col2, col3 = st.columns(3)
     col1.image(image1, caption="Actual Profit (EGP)")
     col2.image(image2, caption="Expected Profit (EGP)")
@@ -1009,4 +1002,3 @@ st.sidebar.divider()
 st.sidebar.markdown("## :grey Supervised by: Eng.Omar Hanafy", unsafe_allow_html=True)
 st.sidebar.divider()
 st.sidebar.markdown("## :grey Approved by: Eng.Mahmoud Abdelsamee", unsafe_allow_html=True)
-
