@@ -48,7 +48,7 @@ st.markdown("""
 st.markdown('<p class="title-text"> </p>', unsafe_allow_html=True)
 
 # Sidebar - Stage 01
-st.sidebar.image(r"images.png", width=380)
+# st.sidebar.image(r"images.png", width=380)
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True) # Help to remove white space above Header
 st.sidebar.header("📊 ITS Financial Analysis", divider = 'violet')
 
@@ -997,8 +997,8 @@ if variation_button:
     st.write(Updated_Database[Updated_Database['Qty._Variance']>0].reset_index())
 
 # Signature
-st.sidebar.markdown("## :grey Made by: Eng.[Ashraf Mahdy Elshaer](https://www.linkedin.com/in/ashraf-elshaer-6261b268/)", unsafe_allow_html=True)
+st.sidebar.markdown("## :grey Designed & Created by: Eng.[Ashraf Mahdy Elshaer](https://www.linkedin.com/in/ashraf-elshaer-6261b268/)", unsafe_allow_html=True)
 st.sidebar.divider()
-st.sidebar.markdown("## :grey Supervised by: Eng.Omar Hanafy", unsafe_allow_html=True)
-st.sidebar.divider()
-st.sidebar.markdown("## :grey Approved by: Eng.Mahmoud Abdelsamee", unsafe_allow_html=True)
+# st.sidebar.markdown("## :grey Supervised by: Eng.Omar Hanafy", unsafe_allow_html=True)
+# st.sidebar.divider()
+# st.sidebar.markdown("## :grey Approved by: Eng.Mahmoud Abdelsamee", unsafe_allow_html=True)
