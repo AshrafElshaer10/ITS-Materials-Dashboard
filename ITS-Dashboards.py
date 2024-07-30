@@ -40,7 +40,7 @@ st.markdown(title_style, unsafe_allow_html=True)
 # Display the title within a frame
 st.markdown("""
     <div class="title-frame">
-        <p class="title-text">ITS Materials & Earned Value Dashboard</p>
+        <p class="title-text">  Materials & Earned Value Dashboard</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -50,7 +50,7 @@ st.markdown('<p class="title-text"> </p>', unsafe_allow_html=True)
 # Sidebar - Stage 01
 # st.sidebar.image(r"images.png", width=380)
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True) # Help to remove white space above Header
-st.sidebar.header("📊 ITS Financial Analysis", divider = 'violet')
+st.sidebar.header("📊   Financial Analysis", divider = 'violet')
 
 st.subheader("Please Insert Your Materials Data [:red[Kindly check your inputs carefully before 'Submit']]:", divider='red') 
 
