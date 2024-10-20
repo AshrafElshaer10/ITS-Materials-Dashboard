@@ -75,14 +75,14 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
             options=["Mtr.", "PC."], width="medium"),
             "Clause": st.column_config.SelectboxColumn(
             options=["PWR Cables", "1st Fix devices", "3rd Fix devices", "PWR Cable Trays", "Data Cable Trays", "Elec. Panels", "Raceways", "Earthing",
-                     "Gen. Set", "TMS", "IP telephones", "Network", "Data Racks", "Data Cables & Accessories", "CCTV", "Fire Alarm",
+                     "Gen. Set", "TMS", "IP telephones", "Network", "Data Racks", "Data cables", "CCTV", "Fire Alarm",
                      "Fire Fighting", "Access Control", "HVAC", "Work Station", "Video Wall", "Furniture", "UPS", "Structure Cabling", 
                      "EMT Devices", "Infrastructure", "TCS"], width="medium"),
             "Brand": st.column_config.SelectboxColumn(
-            options=["Elsewedy Cables", "New Ega", "Legrand", "Egytray", "Lectro", "Elsharif", "Local", "Erico - Mega Electric",
+                options=["Elsewedy Cables", "New Ega", "Legrand", "Egytray", "Lectro", "Elsharif", "Local", "Erico - Mega Electric",
                      "kohler - Tawakol", "AUTOSTRADA", "AVAYA", "Huawei", "PANDUIT", "AXIS", "SUPREMA", "CARRIER",
                      "DELL", "BARCO", "BARCO Intertech", "KIT DISPLAY", "Multinet/Corning", "Alex - Future Electric", "ABB", "NASSAR TECH", 
-                     "ITALY", "SHALON", "POS EGYPT","AUTOSTRADA / Other", "CORNING / PANDUIT", "CORNING","ASF / GHAZALA", "NOVO", "3am Gerges", "CAIRO", "Cardinal"], width="medium"),
+                     "ITALY", "SHALON", "POS EGYPT","AUTOSTRADA / Other", "CORNING / PANDUIT", "CORNING","ASF / GHAZALA", "NOVO", "GERGES", "CAIRO", "Cardinal"], width="medium"),
             "Origin": st.column_config.SelectboxColumn(
             options=["Local", "Foreign"], width="medium"),
             "Road": st.column_config.SelectboxColumn(
@@ -868,7 +868,7 @@ st.plotly_chart(fig8)
 # Filter on Trades to get maximum To_Date Profit
 st.markdown("#### :lightgrey[*Please select clause name to get record of max. gained profit:*]", unsafe_allow_html=True)
 Clause_Selection = st.selectbox('', [None, "PWR Cables", "1st Fix devices", "3rd Fix devices", "PWR Cable Trays", "Data Cable Trays", "Elec. Panels", "Raceways", "Earthing",
-             "Gen. Set", "TMS", "IP telephones", "Network", "Data Racks", "Data Cables & Accessories", "CCTV", "Fire Alarm",
+             "Gen. Set", "TMS", "IP telephones", "Network", "Data Racks", "Data cables", "CCTV", "Fire Alarm",
              "Fire Fighting", "Access Control", "HVAC", "Work Station", "Video Wall", "Furniture", "UPS", "Structure Cabling", 
              "EMT Devices", "Infrastructure", "TCS"])
 st.markdown("#### :lightgrey[*Max. gained profit Was through Above Clause is:*]", unsafe_allow_html=True)
