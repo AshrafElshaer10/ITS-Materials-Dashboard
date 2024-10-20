@@ -946,6 +946,7 @@ cat_filter2 = f4.selectbox('Categorical Filtering:', ['Clause','Trade','Brand','
 
 # Creating A scatter plot showing relation between numerical Values 
 fig6 = px.scatter(Updated_Database, x = x_axis_num_filter, y = y_axis_num_filter, color = cat_filter2, height=500, width=1500)
+sns.regplot(data = Updated_Database, x = x_axis_num_filter, y = y_axis_num_filter)
 
 # Change Figure-06 format
 fig6.update_layout(
