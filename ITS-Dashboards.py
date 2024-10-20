@@ -48,7 +48,7 @@ st.markdown("""
 st.markdown('<p class="title-text"> </p>', unsafe_allow_html=True)
 
 # Sidebar - Stage 01
-# st.sidebar.image(r"images.png", width=380)
+st.sidebar.image(r"images.png", width=380)
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True) # Help to remove white space above Header
 st.sidebar.header("📊   Financial Analysis", divider = 'violet')
 
