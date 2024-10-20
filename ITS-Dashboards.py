@@ -619,7 +619,7 @@ st.divider()
 # SubHeader
 st.header("[Relation Between Numerical Values Per Road]", divider = 'red')
 # Define Roads selector to show metrics on one or more roads
-st.markdown("#### :lightgrey[*Please select one or more numerical attribute:*]", unsafe_allow_html=True)
+st.markdown("#### [*Please select one or more numerical attribute:*]", unsafe_allow_html=True)
 
 # Multi Selector for numerical values
 Nuemrical_Filter0 = st.multiselect('', ['Total_Expected_Gross_Profit(EGP)','Progress (%)','BAC = Budget @ Completion (EGP)','Qty._Variance','Total_Targeted_Sales(EGP)',
@@ -677,7 +677,7 @@ st.divider()
 # Header
 st.header("[Cash Flow Projection]", divider = 'red')
 # Filter on Trades to get maximum To_Date Profit
-st.markdown("#### :lightgrey[*Please select required time frame (From/To):*]", unsafe_allow_html=True)
+st.markdown("#### [*Please select required time frame (From/To):*]", unsafe_allow_html=True)
 
 # Create a Date/Time filter to be applied on cash flow 
 t1,t2 = st.columns(2)
@@ -732,7 +732,7 @@ st.divider()
 # SubHeader
 st.header("Overall Project Segmentation", divider = 'red')
 # Filter Selection
-st.markdown("#### :lightgrey[*Please Select Categorical & Numerical Attributes:*]", unsafe_allow_html=True)
+st.markdown("#### [*Please Select Categorical & Numerical Attributes:*]", unsafe_allow_html=True)
 
 # Page Division Into 3 columns
 c1, c2, c3 = st.columns(3)
@@ -848,10 +848,10 @@ fig8.update_layout(width=1500,height=600)
 st.plotly_chart(fig8)
 
 # Filter on Trades to get maximum To_Date Profit
-st.markdown("#### :lightgrey[*Please select Trade name to get record of max. gained profit:*]", unsafe_allow_html=True)
+st.markdown("#### [*Please select Trade name to get record of max. gained profit:*]", unsafe_allow_html=True)
 Trade_Selection = st.selectbox('', [None, "Electrical System", "Structure Cabling", "TMS", "Network System", "CCTV System", "Light Current System",
             "HVAC System", "Monitoring System", "Video Wall System", "Furniture", "TCS"])
-st.markdown("#### :lightgrey[*Max. gained profit through Above Trade is:*]", unsafe_allow_html=True)
+st.markdown("#### [*Max. gained profit through Above Trade is:*]", unsafe_allow_html=True)
 
 # Conditional Filteration based on selected Trade & Max. Profit
 # st.write(Updated_Database[(Updated_Database['Trade'] == Trade_Selection) & (Updated_Database['Actual_To_Date_Profit (EGP)'] == Updated_Database['Actual_To_Date_Profit (EGP)'].max())])
@@ -866,12 +866,12 @@ fig8.update_layout(width=1500,height=600)
 st.plotly_chart(fig8)
 
 # Filter on Trades to get maximum To_Date Profit
-st.markdown("#### :lightgrey[*Please select clause name to get record of max. gained profit:*]", unsafe_allow_html=True)
+st.markdown("#### [*Please select clause name to get record of max. gained profit:*]", unsafe_allow_html=True)
 Clause_Selection = st.selectbox('', [None, "PWR Cables", "1st Fix devices", "3rd Fix devices", "PWR Cable Trays", "Data Cable Trays", "Elec. Panels", "Raceways", "Earthing",
              "Gen. Set", "TMS", "IP telephones", "Network", "Data Racks", "Data cables", "CCTV", "Fire Alarm",
              "Fire Fighting", "Access Control", "HVAC", "Work Station", "Video Wall", "Furniture", "UPS", "Structure Cabling", 
              "EMT Devices", "Infrastructure", "TCS"])
-st.markdown("#### :lightgrey[*Max. gained profit Was through Above Clause is:*]", unsafe_allow_html=True)
+st.markdown("#### [*Max. gained profit Was through Above Clause is:*]", unsafe_allow_html=True)
 
 # Conditional Filteration based on selected Trade & Max. Profit
 # st.write(Updated_Database[(Updated_Database['Trade'] == Trade_Selection) & (Updated_Database['Actual_To_Date_Profit (EGP)'] == Updated_Database['Actual_To_Date_Profit (EGP)'].max())])
@@ -927,7 +927,7 @@ st.divider()
 st.header("Relation Between Numerical Values (Optional)", divider = 'red')
 
 # Adding FIlters Assigned for Scatter Plot
-st.markdown("#### :lightgrey[*Please select Numerical Attribute for X-axis, Y-axis and legend:*]", unsafe_allow_html=True)
+st.markdown("#### [*Please select Numerical Attribute for X-axis, Y-axis and legend:*]", unsafe_allow_html=True)
 f1,f2,f3,f4 = st.columns(4)
 x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Total_Targeted_Sales(EGP)','Actual Sales(EGP)','QTY._As _Per_Contract','Progress (%)','BAC = Budget @ Completion (EGP)','Qty._Variance',
                                                     'Sales_Variance(EGP)','AC = Actual_Cost_To_Date(EGP)','EV = Earned Value (EGP)','CPI = Cost Performance index',
