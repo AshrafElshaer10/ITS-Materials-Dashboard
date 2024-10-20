@@ -251,7 +251,7 @@ Updated_Database.to_csv(r"Data_Store.csv", index=False)
 # Creating Metrics Cards
 st.header("Project Metrics & KPI's", divider = 'red')
 # Define Roads selector to show metrics on one or more roads
-st.markdown("#### :lightgrey[*Please select one or more roads:*]", unsafe_allow_html=True)
+st.markdown("#### [*Please select one or more roads:*]", unsafe_allow_html=True)
 # Create unique list of options 
 road_selector = st.multiselect("", ["All","Shobra Benha", "Cairo Ismailia", "Cairo Sokhna",
                                 "Cairo Suez", "Cairo Alex", "Regional Ring Road", "Ring Road", "Middle Ring Road"], default= "All")
