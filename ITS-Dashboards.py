@@ -884,7 +884,7 @@ st.header("[Actual Sales VS Actual Profit (%) Per Road]", divider = 'red')
 fig9 = px.histogram(Updated_Database, x='Road', y=["Actual Sales(EGP)","Actual_To_Date_Profit (EGP)"], height=500, width=1500, color_discrete_sequence=['seagreen','mediumvioletred'], text_auto=True, barmode="stack", barnorm= "percent")
 
 # Show Data Labels & update properties
-fig9.update_traces(textfont_size=80, textangle=0, textposition="auto", textfont_color= "white", texttemplate='%{y:.1f}%', hovertemplate='%{y:.1f}%') #This will tell plotly that you want the display of y values in the format .2f meaning 2 decimal places after the decimal point
+fig9.update_traces(textfont_size=40, textangle=0, textposition="auto", textfont_color= "white", texttemplate='%{y:.1f}%', hovertemplate='%{y:.1f}%') #This will tell plotly that you want the display of y values in the format .2f meaning 2 decimal places after the decimal point
 
 # Change Figure-09 format
 fig9.update_layout(
