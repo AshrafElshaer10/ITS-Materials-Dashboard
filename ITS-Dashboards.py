@@ -617,7 +617,7 @@ with d41:
 
 st.divider()
 # SubHeader
-st.header(":white[Relation Between Numerical Values Per Road]", divider = 'red')
+st.header("[Relation Between Numerical Values Per Road]", divider = 'red')
 # Define Roads selector to show metrics on one or more roads
 st.markdown("#### :lightgrey[*Please select one or more numerical attribute:*]", unsafe_allow_html=True)
 
@@ -675,7 +675,7 @@ Updated_Database['Date/Time'] = pd.to_datetime(Updated_Database['Date/Time'])
 
 st.divider()
 # Header
-st.header(":white[Cash Flow Projection]", divider = 'red')
+st.header("[Cash Flow Projection]", divider = 'red')
 # Filter on Trades to get maximum To_Date Profit
 st.markdown("#### :lightgrey[*Please select required time frame (From/To):*]", unsafe_allow_html=True)
 
@@ -840,7 +840,7 @@ with c3:
 
 st.divider()
 # SubHeader
-st.header(":white[Relation Between Trade & Actual Profit (EGP) statistics]", divider = 'red')
+st.header("[Relation Between Trade & Actual Profit (EGP) statistics]", divider = 'red')
 
 # Creating A box chart showing a relation between Trade & Expected Profit (EGP)
 fig8 = px.box(Updated_Database, x = "Trade", y = "Actual_To_Date_Profit (EGP)", color="Trade", points="all")
@@ -859,7 +859,7 @@ st.write(Updated_Database[Updated_Database['Actual_To_Date_Profit (EGP)'] == Upd
 
 st.divider()
 # SubHeader
-st.header(":white[Relation Between Clauses & Actual Profit (EGP) statistics]", divider = 'red')
+st.header("[Relation Between Clauses & Actual Profit (EGP) statistics]", divider = 'red')
 # Creating A box chart showing a relation between Trade & Expected Profit (EGP)
 fig8 = px.box(Updated_Database, x = "Clause", y = "Actual_To_Date_Profit (EGP)", color="Clause", points="all")
 fig8.update_layout(width=1500,height=600)
@@ -879,7 +879,7 @@ st.write(Updated_Database[Updated_Database['Actual_To_Date_Profit (EGP)'] == Upd
 
 st.divider()
 # SubHeader
-st.header(":white[Actual Sales VS Actual Profit (%) Per Road]", divider = 'red')
+st.header("[Actual Sales VS Actual Profit (%) Per Road]", divider = 'red')
 
 # Creating A chart showing a relation between EV, AC, CV per road
 fig9 = px.histogram(Updated_Database, x='Road', y=["Actual Sales(EGP)","Actual_To_Date_Profit (EGP)"], height=500, width=1500, color_discrete_sequence=['seagreen','mediumvioletred'], text_auto=True, barmode="stack", barnorm= "percent")
