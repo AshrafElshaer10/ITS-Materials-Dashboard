@@ -81,7 +81,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
             "Brand": st.column_config.SelectboxColumn(
                 options=["Elsewedy Cables", "New Ega", "Legrand", "Egytray", "Lectro", "Elsharif", "Local", "Erico - Mega Electric",
                      "kohler - Tawakol", "AUTOSTRADA", "AVAYA", "Huawei", "PANDUIT", "AXIS", "SUPREMA", "CARRIER",
-                     "DELL", "BARCO", "BARCO Intertech", "KIT DISPLAY", "Multinet/Corning", "Alex - Future Electric", "ABB", "NASSAR TECH", 
+                     "DELL", "BARCO", "BARCO Intertech", "KIT DISPLAY", "Multinet/Corning", "Future Electric", "ABB", "NASSAR TECH", 
                      "ITALY", "SHALON", "POS EGYPT","AUTOSTRADA / Other", "CORNING / PANDUIT", "CORNING","ASF / GHAZALA", "NOVO", "GERGES", "CAIRO", "Cardinal"], width="medium"),
             "Origin": st.column_config.SelectboxColumn(
             options=["Local", "Foreign"], width="medium"),
@@ -89,10 +89,10 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
             options=["Shobra Benha", "Cairo Ismailia", "Cairo Sokhna", "Cairo Suez", "Cairo Alex", "Regional Ring Road", "Ring Road", "Middle Ring Road"], width="medium"),
             "Location": st.column_config.SelectboxColumn(
             options=["General", "RCP-01 Room", "RCP-02 Room", "Server Room", "TMP Room", "Module A 3 lanes", "Module A 4 lanes", "Module A 5 lanes",
-                     "Module A 6 lanes", "Module A 7 lanes", "Module A 8 lanes", "Module A 9 lanes", "Module A 10 lanes", "Module A 11 lanes", "T1: WiM (1-lane) + Module A", 
-                     "T2: WiM (2-lane) + Module A", "T3: WiM (3-lane) + Module A", "A4: WiM (2-lane) + Module A for 4 lanes", "A4: WiM (4-lane) + Module A for 4 lanes",
-                     "A5: WiM (2-lane) + Module A for 5 lanes", "A5: WiM (5-lane) + Module A for 5 lanes", "A6: WiM (2-lane) + Module A for 6 lanes", "A6: WiM (6-lane) + Module A for 6 lanes"
-                     "A7: WiM (7-lane) + Module A for 7 lanes", "Poles", "Toll Plaza"], width="medium"),
+                     "Module A 6 lanes", "Module A 7 lanes", "Module A 8 lanes", "Module A 9 lanes", "Module A 10 lanes", "Module A 11 lanes", "T1: WiM (1-lane) Module A", 
+                     "T2: WiM (2-lane) Module A", "T3: WiM (3-lane) Module A", "A4: WiM (2-lane) Module A for 4 lanes", "A4: WiM (4-lane) Module A for 4 lanes",
+                     "A5: WiM (2-lane) Module A for 5 lanes", "A5: WiM (5-lane) Module A for 5 lanes", "A6: WiM (2-lane) Module A for 6 lanes", "A6: WiM (6-lane) Module A for 6 lanes"
+                     "A7: WiM (7-lane) Module A for 7 lanes", "Poles", "Toll Plaza"], width="medium"),
             "Progress (%)": st.column_config.SelectboxColumn(
             options=["0.0", "0.50", "0.75", "1.00"], width="medium"), # All above was configured columns with drop down list, "required" parameter set to "True" to prevent adding records with null values. 
             }, height=250, num_rows="dynamic")
