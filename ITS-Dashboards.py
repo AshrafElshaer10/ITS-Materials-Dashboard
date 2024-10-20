@@ -89,7 +89,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
             options=["Shobra Benha", "Cairo Ismailia", "Cairo Sokhna", "Cairo Suez", "Cairo Alex", "Regional Ring Road", "Ring Road", "Middle Ring Road"], width="medium"),
             "Location": st.column_config.SelectboxColumn(
             options=["General", "RCP-01 Room", "RCP-02 Room", "Server Room", "TMP Room", "Module A 3 lanes", "Module A 4 lanes", "Module A 5 lanes",
-                     "Module A 6 lanes", "Module A 7 lanes", "Module A 8 lanes", "Module A 9 lanes", "Module A 10 lanes", "Module A 11 lanes", "T1 WiM 1 lane", 
+                     "Module A 6 lanes", "Module A 7 lanes", "Module A 8 lanes", "Module A 9 lanes", "Module A 10 lanes", "Module A 11 lanes", "T1 WIM 1 lane", 
                      "T2 WiM (2-lane) Module A", "T3 WiM (3-lane) Module A", "A4 WiM (2-lane) Module A for 4 lanes", "A4 WiM (4-lane) Module A for 4 lanes",
                      "A5 WiM (2-lane) Module A for 5 lanes", "A5 WiM (5-lane) Module A for 5 lanes", "A6 WiM (2-lane) Module A for 6 lanes", "A6 WiM (6-lane) Module A for 6 lanes"
                      "A7 WiM (7-lane) Module A for 7 lanes", "Poles", "Toll Plaza"], width="medium"),
