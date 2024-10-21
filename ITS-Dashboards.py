@@ -111,7 +111,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
     database_without_calculations['Sales_Variance(EGP)'] = (database_without_calculations['Qty._Variance'] * database_without_calculations['Targeted_Unit_Sale(EGP)']).round(2)
     database_without_calculations['Actual_Unit_Cost(EGP)'] = pd.to_numeric(database_without_calculations['Actual_Unit_Cost(EGP)'], errors='coerce')
     database_without_calculations['QTY._As _Per_Contract'] = pd.to_numeric(database_without_calculations['QTY._As _Per_Contract'], errors='coerce')
-    database_without_calculations['AC = Actual_Cost_To_Date(EGP)'] = (database_without_calculations['Actual_Unit_Cost(EGP)'] * database_without_calculations['QTY._As _Per_Contract']).round(2)
+    database_without_calculations['AC = Actual_Cost_To_Date(EGP)'] = (database_without_calculations['Actual_Unit_Cost(EGP)'] * database_without_calculations['Actual_QTY.']).round(2)
     database_without_calculations['BAC = Budget @ Completion (EGP)'] = pd.to_numeric(database_without_calculations['BAC = Budget @ Completion (EGP)'], errors='coerce')
     database_without_calculations['Progress (%)'] = pd.to_numeric(database_without_calculations['Progress (%)'], errors='coerce')
     database_without_calculations['EV = Earned Value (EGP)'] = (database_without_calculations['BAC = Budget @ Completion (EGP)'] * database_without_calculations['Progress (%)']).round(2)
