@@ -928,7 +928,7 @@ st.header("Relation Between Numerical Values (Optional)", divider = 'red')
 # Adding FIlters Assigned for Scatter Plot
 st.markdown("#### [*Please select Numerical Attribute for X-axis, Y-axis and legend:*]", unsafe_allow_html=True)
 f1,f2,f3,f4 = st.columns(4)
-x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Total_Sales(EGP)','Actual_Sales_Progress(EGP)','QTY._As _Per_Contract','Progress (%)','BAC = Budget @ Completion (EGP)','Qty._Variance',
+x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Total_Sales(EGP)','Actual_Sales_Progress(EGP)','QTY._As _Per_Contract','Actual Qty.','Progress (%)','BAC = Budget @ Completion (EGP)','Qty._Variance',
                                                     'Sales_Variance(EGP)','AC = Actual_Cost_To_Date(EGP)','EV = Earned Value (EGP)','CPI = Cost Performance index',
                                                     'TCPI = To Complete Performance index','CV = Cost Variance (EGP)','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                     'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)'])
