@@ -775,7 +775,7 @@ with c1:
 with c2:
     # divide each columns into two filters for each chart 
     num_filter2, cat_filter2 = st.columns(2)
-    num_filter2 = num_filter2.selectbox('Values:', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+    num_filter2 = num_filter2.selectbox('Values:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
@@ -810,7 +810,7 @@ with c2:
 with c3:
     # divide each columns into two filters for each chart 
     num_filter3, cat_filter3 = st.columns(2)
-    num_filter3 = num_filter3.selectbox('Values:', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+    num_filter3 = num_filter3.selectbox('Values:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
@@ -933,19 +933,19 @@ st.header("Relation Between Numerical Values (Optional)", divider = 'red')
 # Adding FIlters Assigned for Scatter Plot
 st.markdown("#### [*Please select Numerical Attribute for X-axis, Y-axis and legend:*]", unsafe_allow_html=True)
 f1,f2,f3,f4 = st.columns(4)
-x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
                                                    'Actual_To_Date_Profit (EGP)'])
-y_axis_num_filter = f2.selectbox('Y_axis_Value:', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+y_axis_num_filter = f2.selectbox('Y_axis_Value:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
                                                    'Actual_To_Date_Profit (EGP)'])
-num_filter = f3.selectbox('Numerical Filtering:', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+num_filter = f3.selectbox('Numerical Filtering:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
