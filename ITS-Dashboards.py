@@ -622,7 +622,7 @@ st.header("[Relation Between Numerical Values Per Road]", divider = 'red')
 st.markdown("#### [*Please select one or more numerical attribute:*]", unsafe_allow_html=True)
 
 # Multi Selector for numerical values
-Nuemrical_Filter0 = st.multiselect('', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+Nuemrical_Filter0 = st.multiselect('', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
