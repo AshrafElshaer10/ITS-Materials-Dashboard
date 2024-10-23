@@ -276,7 +276,7 @@ b1_metric_value = filtered_road_data['ETC = Estimate Cost to complete (EGP)'] # 
 b2_metric_value = filtered_road_data['CPI = Cost Performance index'] # Horizontal Filtering
 b3_metric_value = filtered_road_data['TCPI = To Complete Performance index'] # Horizontal Filtering
 b4_metric_value = filtered_road_data['Total_Targeted_Gross_Profit(EGP)'] # Horizontal Filtering
-b5_metric_value = filtered_road_data[''] # Horizontal Filtering
+b5_metric_value = filtered_road_data['Actual_To_Date_Profit (EGP)'] # Horizontal Filtering
 b6_metric_value = filtered_road_data['Progress (%)'] # Horizontal Filteringst
 
 a1, a2, a3, a4, a5, a6 = st.columns(6, gap = "small")
