@@ -740,7 +740,7 @@ c1, c2, c3 = st.columns(3)
 with c1:
     # divide each columns into two filters for each chart 
     num_filter1, cat_filter1 = st.columns(2)
-    num_filter1 = num_filter1.selectbox('Values:', ['Actual_QTY.','QTY._As _Per_Contract'],'Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
+    num_filter1 = num_filter1.selectbox('Values:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
