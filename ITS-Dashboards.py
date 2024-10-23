@@ -334,7 +334,7 @@ b6_metric_value_rounded = round(b6_metric_value_mean, 2)
 b6.metric('⌛[Overall_Work_Completion_Progress] :gray-background[(%)]', (b6_metric_value_rounded*100))
 
 # Sidebar - Stage 02
-# Creating A guage plot showing relation between To_Date profit & Target profit 
+# Creating A guage plot showing relation between To_Date profit & Expected profit 
 fig7 = go.Figure(go.Indicator(
     domain={'x': [0, 0.9], 'y': [0.1, 1]},
     value=Updated_Database['Actual_To_Date_Profit (EGP)'].sum(),
@@ -360,19 +360,19 @@ fig7.add_trace(go.Indicator(
     domain={'x': [0.6 , 0.95], 'y': [0.35 , 0.9]},
     name='Total_Targeted_Gross_Profit(EGP)'))
 
-fig7.add_trace(go.Indicator(
-    value=Updated_Database['BAC = Budget @ Completion (EGP)'].sum(),
-    number= {'font_color':'white',
-             'font_size': 30},
-    domain={'x': [0.75 , 0.9], 'y': [0.15, 0.5]},
-    name='BAC = Budget @ Completion (EGP)'))
+#fig7.add_trace(go.Indicator(
+#    value=Updated_Database['BAC = Budget @ Completion (EGP)'].sum(),
+#    number= {'font_color':'white',
+#            'font_size': 30},
+#    domain={'x': [0.75 , 0.9], 'y': [0.15, 0.5]},
+#    name='BAC = Budget @ Completion (EGP)'))
 
 fig7.add_trace(go.Indicator(
-    value=Updated_Database['Total_Expected_Gross_Profit(EGP)'].sum(),
+    value=Updated_Database['Total_Expected_Sales(EGP)'].sum(),
     number= {'font_color':'lightgrey',
              'font_size': 30},
     domain={'x': [0, 0.9], 'y': [0.5, 0.6]},
-    name='Total_Expected_Gross_Profit(EGP)'))
+    name='Total_Expected_Sales(EGP)'))
 
 # Change Figure-07 format
 fig7.update_layout(showlegend=True, # Show the legend
