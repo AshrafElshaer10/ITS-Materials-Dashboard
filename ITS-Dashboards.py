@@ -932,7 +932,7 @@ x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Total_Sales(EGP)','Actual_Sa
                                                     'Sales_Variance(EGP)','AC = Actual_Cost_To_Date(EGP)','EV = Earned Value (EGP)','CPI = Cost Performance index',
                                                     'TCPI = To Complete Performance index','CV = Cost Variance (EGP)','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                     'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)'])
-y_axis_num_filter = f2.selectbox('Y_axis_Value:', ['Total_Expected_Gross_Profit(EGP)','Progress (%)','BAC = Budget @ Completion (EGP)','Qty._Variance','Total_Sales(EGP)',
+y_axis_num_filter = f2.selectbox('Y_axis_Value:', ['Total_Expected_Gross_Profit(EGP)','Actual_To_Date_Profit (EGP)','Progress (%)','BAC = Budget @ Completion (EGP)','Qty._Variance','Total_Sales(EGP)',
                                                     'Sales_Variance(EGP)','AC = Actual_Cost_To_Date(EGP)','EV = Earned Value (EGP)','CPI = Cost Performance index',
                                                     'TCPI = To Complete Performance index','CV = Cost Variance (EGP)','EAC = Estimated @ Completion (EGP)',
                                                     'ETC = Estimate Cost to complete (EGP)','VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)',
