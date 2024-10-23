@@ -360,7 +360,7 @@ fig7.add_trace(go.Indicator(
     domain={'x': [0.6 , 0.95], 'y': [0.35 , 0.9]},
     name='Total_Targeted_Gross_Profit(EGP)'))
 
-#fig7.add_trace(go.Indicator(
+fig7.add_trace(go.Indicator(
     value=Updated_Database['Total_Expected_Sales(EGP)'].sum(),
     number= {'font_color':'white',
             'font_size': 30},
