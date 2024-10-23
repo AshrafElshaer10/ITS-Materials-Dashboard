@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import plotly.express as px
+import plotly.graph_objects as go
 import datetime as dt 
-from plotly import graph_objs as go
 from numerize import numerize # Used to convert values into Thousands & Millions
 from PIL import Image, ImageDraw
 import time 
@@ -707,43 +707,63 @@ finish_date = pd.to_datetime(t2.date_input("Finish Date::", value = Updated_Data
 # Filter the data based on the selected date range
 filtered_data = Updated_Database[(Updated_Database['Date/Time'] >= start_date) & (Updated_Database['Date/Time'] <= finish_date)]
 
-# Creating A chart showing Cash flow projection
-fig2 = px.area(filtered_data, x='Date/Time', y=['Cash_in(EGP)','Cash_out(EGP)'], height=500, width=1500, color_discrete_sequence=['red','white'])
+# Creating a chart showing Cash flow projection
+fig2 = go.Figure()
+
+# Add Cash_in trace
+fig2.add_trace(go.Scatter(
+    x=filtered_data['Date/Time'],
+    y=filtered_data['Cash_in(EGP)'],
+    fill='tonexty',  # Fill the area below the line
+    mode='lines',
+    name='Cash_in(EGP)',
+    line=dict(color='red'),
+    text=filtered_data['Cash_in(EGP)'],
+    textposition='top left'
+))
+
+# Add Cash_out trace
+fig2.add_trace(go.Scatter(
+    x=filtered_data['Date/Time'],
+    y=filtered_data['Cash_out(EGP)'],
+    fill='tonexty',  # Fill the area below the line
+    mode='lines',
+    name='Cash_out(EGP)',
+    line=dict(color='white'),
+    text=filtered_data['Cash_out(EGP)'],
+    textposition='top left'
+))
+
 # Show Data Labels & update properties
-fig2.update_traces(marker_size = 15, mode ="lines", text = ["Cash_in(EGP)","Cash_out(EGP)"], textfont = {'size':20, 'color':'white'}, textposition = ['top left','top left','top left','top left','top left','top left'])
+fig2.update_traces(marker_size=15, textfont={'size': 20, 'color': 'white'})
 
 # Change Figure-02 format
 fig2.update_layout(
     plot_bgcolor="rgba(85, 104, 225, 0.15)",
-    legend_title= {'text': 'Legend',
-                   'font': {'size': 15,
-                            'color':'white'}},
-    legend= {'font': {'size':12,
-                      'color':'white'},
-                      'x':0.5, 'y': 1},
-    legend_bgcolor = "rgba(0, 0, 0, 0)",
-    xaxis = {'tickfont': {'size': 15,
-                          'color':'white'},
-             'title': {'text':'Date',
-                       'font': {'size': 20,
-                                'color':'white'}},
-             'showgrid':True},
-    yaxis = {'tickfont': {'size': 15,
-                          'color':'white'},
-             'title': {'text':'AMOUNT IN (EGP)',
-                       'font': {'size': 20,
-                                'color':'white'}},
-                       'showgrid':True},
-    hoverlabel = {'bgcolor':'orange',
-                  'font_size':20,
-                  'font_family': 'Times New Roman',
-                  'font' : {'color': 'white'}},
-    margin = go.layout.Margin( 
-              l=0,
-              r=0,
-              b=0,
-              t=0)
-                        ) # Margins used to remove all unused spaces
+    legend_title={'text': 'Legend',
+                  'font': {'size': 15, 'color': 'white'}},
+    legend={'font': {'size': 12, 'color': 'white'}, 'x': 0.5, 'y': 1},
+    legend_bgcolor="rgba(0, 0, 0, 0)",
+    xaxis={'tickfont': {'size': 15, 'color': 'white'},
+           'title': {'text': 'Date',
+                     'font': {'size': 20, 'color': 'white'}},
+           'showgrid': True},
+    yaxis={'tickfont': {'size': 15, 'color': 'white'},
+           'title': {'text': 'AMOUNT IN (EGP)',
+                     'font': {'size': 20, 'color': 'white'}},
+           'showgrid': True},
+    hoverlabel={'bgcolor': 'orange',
+                'font_size': 20,
+                'font_family': 'Times New Roman',
+                'font': {'color': 'white'}},
+    margin=go.layout.Margin(
+        l=0,
+        r=0,
+        b=0,
+        t=0)
+)
+
+# Show the plot
 st.plotly_chart(fig2)
 
 st.divider()
