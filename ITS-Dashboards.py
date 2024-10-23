@@ -124,7 +124,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
     database_without_calculations['VAC = Variance @ Completion (EGP)'] = (database_without_calculations['BAC = Budget @ Completion (EGP)'] - database_without_calculations['EAC = Estimated @ Completion (EGP)']).round(2)
     database_without_calculations['Total_Targeted_Gross_Profit(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)'] - database_without_calculations['BAC = Budget @ Completion (EGP)']).round(2)
     database_without_calculations['Total_Expected_Gross_Profit(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)'] - database_without_calculations['EAC = Estimated @ Completion (EGP)']).round(2)
-    database_without_calculations['Actual_Sales_Progress(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)'] * database_without_calculations['Progress (%)']).round(2)
+    database_without_calculations['Actual_Sales_Progress(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)']] * database_without_calculations['Progress (%)']).round(2)
     database_without_calculations['Actual_To_Date_Profit (EGP)'] = (database_without_calculations['Actual_Sales_Progress(EGP)'] - database_without_calculations['AC = Actual_Cost_To_Date(EGP)']).round(2)
     database_without_calculations['Cash_in(EGP)'] = 0 # Generating column as below indexing through iloc can not be defined without base
     database_without_calculations['Cash_out(EGP)'] = 0 # Generating column as below indexing through iloc can not be defined without base
