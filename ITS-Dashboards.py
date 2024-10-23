@@ -1075,7 +1075,7 @@ max_outlier = Q3 + 1.5*IQR
 
 df_extracted_cleaned = df_extracted[(df_extracted['EV = Earned Value (EGP)'] > min_outlier) & (df_extracted['EV = Earned Value (EGP)'] < max_outlier)]
 
-fig, axes = plt.subplots(nrows=2, ncols=3, figsize = (20,20)) 
+fig10, axes = plt.subplots(nrows=2, ncols=3, figsize = (20,20)) 
 sns.regplot(x = df_extracted_cleaned['EV = Earned Value (EGP)'], y = df_extracted_cleaned['Total_Expected_Gross_Profit(EGP)'], ax = axes[0,0], line_kws={"color": "red"})
 axes[0,0].set_title('Earned Value vs Total Expected Gross Profit')
 axes[0,0].set_xlabel('Earned Value (EGP)')
@@ -1106,4 +1106,4 @@ axes[1,2].set_title('Actual Cost vs Total_Targeted_Gross_Profit')
 axes[1,2].set_xlabel('Actual_Cost_To_Date(EGP)')
 axes[1,2].set_ylabel('Total_Targeted_Gross_Profit(EGP)')
 
-plt.show()
+st.pyplot(fig10)
