@@ -125,7 +125,7 @@ with st.form(key ="input_form", clear_on_submit= True): # "clear_on_submit" to r
     database_without_calculations['Total_Targeted_Gross_Profit(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)'] - database_without_calculations['BAC = Budget @ Completion (EGP)']).round(2)
     database_without_calculations['Total_Expected_Gross_Profit(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)'] - database_without_calculations['EAC = Estimated @ Completion (EGP)']).round(2)
     database_without_calculations['Actual_Sales_Progress(EGP)'] = (database_without_calculations['Total_Expected_Sales(EGP)'] * database_without_calculations['Progress (%)']).round(2)
-    database_without_calculations['Actual_To_Date_Profit (EGP)'] = (database_without_calculations['Actual_Sales_Progress(EGP)'] - database_without_calculations['AC = Actual_Cost_To_Date(EGP)']).round(2)
+    database_without_calculations[''] = (database_without_calculations['Actual_Sales_Progress(EGP)'] - database_without_calculations['AC = Actual_Cost_To_Date(EGP)']).round(2)
     database_without_calculations['Cash_in(EGP)'] = 0 # Generating column as below indexing through iloc can not be defined without base
     database_without_calculations['Cash_out(EGP)'] = 0 # Generating column as below indexing through iloc can not be defined without base
     if len(database_without_calculations) > 0:    # Return No. of rows
@@ -276,7 +276,7 @@ b1_metric_value = filtered_road_data['ETC = Estimate Cost to complete (EGP)'] # 
 b2_metric_value = filtered_road_data['CPI = Cost Performance index'] # Horizontal Filtering
 b3_metric_value = filtered_road_data['TCPI = To Complete Performance index'] # Horizontal Filtering
 b4_metric_value = filtered_road_data['Total_Targeted_Gross_Profit(EGP)'] # Horizontal Filtering
-b5_metric_value = filtered_road_data['Actual_To_Date_Profit (EGP)'] # Horizontal Filtering
+b5_metric_value = filtered_road_data[''] # Horizontal Filtering
 b6_metric_value = filtered_road_data['Progress (%)'] # Horizontal Filteringst
 
 a1, a2, a3, a4, a5, a6 = st.columns(6, gap = "small")
@@ -328,7 +328,7 @@ b4_metric_value_rounded = round(b4_metric_value_sum, 2)
 b4.metric(':dart: [Target Profit(EGP)] :gray-background[Total_Targeted_Gross_Profit(EGP)]', numerize.numerize(b4_metric_value_rounded), help = "The value of total planned caluses profit, the project profit baseline")
 b5_metric_value_sum = b5_metric_value.sum()
 b5_metric_value_rounded = round(b5_metric_value_sum, 2)
-b5.metric(':heavy_dollar_sign: [To_Date_Profit(EGP)] :gray-background[Actual_To_Date_Profit (EGP)]', numerize.numerize(b5_metric_value_rounded), help = "Actual Obtained Profit")
+b5.metric(':heavy_dollar_sign: [To_Date_Profit(EGP)] :gray-background[]', numerize.numerize(b5_metric_value_rounded), help = "Actual Obtained Profit")
 b6_metric_value_mean = b6_metric_value.mean()
 b6_metric_value_rounded = round(b6_metric_value_mean, 2)
 b6.metric('⌛[Overall_Work_Completion_Progress] :gray-background[(%)]', (b6_metric_value_rounded*100))
@@ -337,7 +337,7 @@ b6.metric('⌛[Overall_Work_Completion_Progress] :gray-background[(%)]', (b6_met
 # Creating A guage plot showing relation between To_Date profit & Expected profit 
 fig7 = go.Figure(go.Indicator(
     domain={'x': [0, 0.9], 'y': [0.1, 1]},
-    value=Updated_Database['Actual_To_Date_Profit (EGP)'].sum(),
+    value=Updated_Database[''].sum(),
     mode="gauge+number+delta",
     title={'text': "Overall Profit Indicator",
            'font_size': 30,
@@ -355,7 +355,7 @@ fig7 = go.Figure(go.Indicator(
 fig7 = go.Figure(go.Indicator(
     domain={'x': [0, 0.9], 'y': [0.1, 1]},
     value=Updated_Database['Actual_To_Date_Profit (EGP)'].sum(),
-    mode="gauge+number+delta",
+    mode="gauge+number+delta",    
     title={'text': "Overall Profit Indicator",
            'font_size': 30,
            'font_color': 'white'},
@@ -644,7 +644,7 @@ Nuemrical_Filter0 = st.multiselect('', ['Actual_QTY.','QTY._As _Per_Contract','Q
                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                   'Actual_To_Date_Profit (EGP)'])
+                                   ''])
 
 # Creating A chart showing a relation between EV, AC, CV per road
 fig1 = px.histogram(Updated_Database, x='Road', y=Nuemrical_Filter0, height=500, width=1500, text_auto=True, barmode="group")
@@ -782,7 +782,7 @@ with c1:
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                                   'Actual_To_Date_Profit (EGP)'], key='num_filter1') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
+                                                   ''], key='num_filter1') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
     cat_filter1 = cat_filter1.selectbox('Legend:', ['Road','Clause','Trade','Brand','Origin','Location'], key='cat_filter1') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
 
     # Creating A charts showing total targeted sales per road
@@ -817,7 +817,7 @@ with c2:
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                                   'Actual_To_Date_Profit (EGP)'], key='num_filter2') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
+                                                   ''], key='num_filter2') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
     cat_filter2 = cat_filter2.selectbox('Legend:', ['Clause','Trade','Brand','Origin','Road','Location'], key='cat_filter2') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
 
     # Creating A charts showing total targeted sales per road
@@ -852,7 +852,7 @@ with c3:
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                                   'Actual_To_Date_Profit (EGP)'], key='num_filter3') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
+                                                   ''], key='num_filter3') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
     cat_filter3 = cat_filter3.selectbox('Legend:', ['Origin','Clause','Trade','Brand','Road','Location'], key='cat_filter3') ## Adding key parameter to each st.select box call to ensure each widget has a unique key for c1, c2, c3.
 
     # Creating A charts showing total targeted sales per road
@@ -884,7 +884,7 @@ st.divider()
 st.header("[Relation Between Trade & Actual Profit (EGP) statistics]", divider = 'red')
 
 # Creating A box chart showing a relation between Trade & Expected Profit (EGP)
-fig8 = px.box(Updated_Database, x = "Trade", y = "Actual_To_Date_Profit (EGP)", color="Trade", points="all")
+fig8 = px.box(Updated_Database, x = "Trade", y = "", color="Trade", points="all")
 fig8.update_layout(width=1500,height=600)
 st.plotly_chart(fig8)
 
@@ -895,14 +895,14 @@ Trade_Selection = st.selectbox('', [None, "Electrical System", "Structure Cablin
 st.markdown("#### [*Max. gained profit through Above Trade is:*]", unsafe_allow_html=True)
 
 # Conditional Filteration based on selected Trade & Max. Profit
-# st.write(Updated_Database[(Updated_Database['Trade'] == Trade_Selection) & (Updated_Database['Actual_To_Date_Profit (EGP)'] == Updated_Database['Actual_To_Date_Profit (EGP)'].max())])
-st.write(Updated_Database[Updated_Database['Actual_To_Date_Profit (EGP)'] == Updated_Database[Updated_Database['Trade']==Trade_Selection]['Actual_To_Date_Profit (EGP)'].max()])
+# st.write(Updated_Database[(Updated_Database['Trade'] == Trade_Selection) & (Updated_Database[''] == Updated_Database[''].max())])
+st.write(Updated_Database[Updated_Database[''] == Updated_Database[Updated_Database['Trade']==Trade_Selection][''].max()])
 
 st.divider()
 # SubHeader
 st.header("[Relation Between Clauses & Actual Profit (EGP) statistics]", divider = 'red')
 # Creating A box chart showing a relation between Trade & Expected Profit (EGP)
-fig8 = px.box(Updated_Database, x = "Clause", y = "Actual_To_Date_Profit (EGP)", color="Clause", points="all")
+fig8 = px.box(Updated_Database, x = "Clause", y = "", color="Clause", points="all")
 fig8.update_layout(width=1500,height=600)
 st.plotly_chart(fig8)
 
@@ -915,15 +915,15 @@ Clause_Selection = st.selectbox('', [None, "PWR Cables", "1st Fix devices", "3rd
 st.markdown("#### [*Max. gained profit Was through Above Clause is:*]", unsafe_allow_html=True)
 
 # Conditional Filteration based on selected Trade & Max. Profit
-# st.write(Updated_Database[(Updated_Database['Trade'] == Trade_Selection) & (Updated_Database['Actual_To_Date_Profit (EGP)'] == Updated_Database['Actual_To_Date_Profit (EGP)'].max())])
-st.write(Updated_Database[Updated_Database['Actual_To_Date_Profit (EGP)'] == Updated_Database[Updated_Database['Clause']==Clause_Selection]['Actual_To_Date_Profit (EGP)'].max()])
+# st.write(Updated_Database[(Updated_Database['Trade'] == Trade_Selection) & (Updated_Database[''] == Updated_Database[''].max())])
+st.write(Updated_Database[Updated_Database[''] == Updated_Database[Updated_Database['Clause']==Clause_Selection][''].max()])
 
 st.divider()
 # SubHeader
 st.header("[Actual Sales VS Actual Profit (%) Per Road]", divider = 'red')
 
 # Creating A chart showing a relation between EV, AC, CV per road
-fig9 = px.histogram(Updated_Database, x='Road', y=["Actual_Sales_Progress(EGP)","Actual_To_Date_Profit (EGP)"], height=500, width=1500, color_discrete_sequence=['seagreen','mediumvioletred'], text_auto=True, barmode="stack", barnorm= "percent")
+fig9 = px.histogram(Updated_Database, x='Road', y=["Actual_Sales_Progress(EGP)",""], height=500, width=1500, color_discrete_sequence=['seagreen','mediumvioletred'], text_auto=True, barmode="stack", barnorm= "percent")
 
 # Show Data Labels & update properties
 fig9.update_traces(textfont_size=40, textangle=0, textposition="auto", textfont_color= "white", texttemplate='%{y:.1f}%', hovertemplate='%{y:.1f}%') #This will tell plotly that you want the display of y values in the format .2f meaning 2 decimal places after the decimal point
@@ -975,19 +975,19 @@ x_axis_num_filter = f1.selectbox('X_axis_Value:', ['Actual_QTY.','QTY._As _Per_C
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                                   'Actual_To_Date_Profit (EGP)'])
+                                                   ''])
 y_axis_num_filter = f2.selectbox('Y_axis_Value:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                                   'Actual_To_Date_Profit (EGP)'])
+                                                   ''])
 num_filter = f3.selectbox('Numerical Filtering:', ['Actual_QTY.','QTY._As _Per_Contract','Qty._Variance','Targeted_Unit_Sale(EGP)','Total_Targeted_Sales(EGP)',
                                                    'Total_Expected_Sales(EGP)','Sales_Variance(EGP)','Actual_Unit_Cost(EGP)','QTY._As _Per_Contract','AC = Actual_Cost_To_Date(EGP)',
                                                    'BAC = Budget @ Completion (EGP)','Progress (%)','EV = Earned Value (EGP)','CPI = Cost Performance index','CV = Cost Variance (EGP)',
                                                    'TCPI = To Complete Performance index','EAC = Estimated @ Completion (EGP)','ETC = Estimate Cost to complete (EGP)',
                                                    'VAC = Variance @ Completion (EGP)','Total_Targeted_Gross_Profit(EGP)','Total_Expected_Gross_Profit(EGP)','Actual_Sales_Progress(EGP)',
-                                                   'Actual_To_Date_Profit (EGP)'])
+                                                   ''])
 cat_filter2 = f4.selectbox('Categorical Filtering:', ['Clause','Trade','Brand','Origin','Road','Location'])
 
 # Creating A scatter plot showing relation between numerical Values 
