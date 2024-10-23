@@ -345,7 +345,7 @@ fig7 = go.Figure(go.Indicator(
     delta={'reference': Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum()},
     number= {'font_color':'green',
              'font_size': 30},
-    gauge={'axis': {'range': [None, Updated_Database['BAC = Budget @ Completion (EGP)'].sum()]},
+    gauge={'axis': {'range': [None, Updated_Database['Total_Expected_Sales(EGP)'].sum()]},
            'steps': [{'range': [0, Updated_Database['Total_Expected_Gross_Profit(EGP)'].sum()], 'color': "lightgray"}],
            'threshold': {'line': {'color': "red", 'width': 4}, 'thickness': 0.75,
                          'value': Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum()},
