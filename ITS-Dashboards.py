@@ -352,9 +352,26 @@ fig7 = go.Figure(go.Indicator(
            'bar': {'color': 'green'}}))
 
 # Add additional traces with names
+fig7 = go.Figure(go.Indicator(
+    domain={'x': [0, 0.9], 'y': [0.1, 1]},
+    value=Updated_Database['Actual_To_Date_Profit (EGP)'].sum(),
+    mode="gauge+number+delta",
+    title={'text': "Overall Profit Indicator",
+           'font_size': 30,
+           'font_color': 'white'},
+    delta={'reference': Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum()},
+    number= {'font_color':'green',
+             'font_size': 30},
+    gauge={'axis': {'range': [None, Updated_Database['Total_Expected_Sales(EGP)'].sum()]},
+           'steps': [{'range': [0, Updated_Database['Total_Expected_Gross_Profit(EGP)'].sum()], 'color': "lightgray"}],
+           'threshold': {'line': {'color': "red", 'width': 4}, 'thickness': 0.75,
+                         'value': Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum()},
+           'bar': {'color': 'green'}}))
+
+# Add additional traces with names
 fig7.add_trace(go.Indicator(
     value=Updated_Database['Total_Targeted_Gross_Profit(EGP)'].sum(),
-    delta={'reference': Updated_Database['BAC = Budget @ Completion (EGP)'].sum()},
+    delta={'reference': Updated_Database['Total_Expected_Sales(EGP)'].sum()},
     number= {'font_color':'red',
              'font_size': 30},
     domain={'x': [0.6 , 0.95], 'y': [0.35 , 0.9]},
@@ -363,16 +380,16 @@ fig7.add_trace(go.Indicator(
 fig7.add_trace(go.Indicator(
     value=Updated_Database['Total_Expected_Sales(EGP)'].sum(),
     number= {'font_color':'white',
-            'font_size': 30},
+             'font_size': 30},
     domain={'x': [0.75 , 0.9], 'y': [0.15, 0.5]},
     name='Total_Expected_Sales(EGP)'))
 
 fig7.add_trace(go.Indicator(
-    value=Updated_Database['Total_Expected_Sales(EGP)'].sum(),
+    value=Updated_Database['Total_Expected_Gross_Profit(EGP)'].sum(),
     number= {'font_color':'lightgrey',
-            'font_size': 30},
+             'font_size': 30},
     domain={'x': [0, 0.9], 'y': [0.5, 0.6]},
-    name='Total_Expected_Sales(EGP)'))
+    name='Total_Expected_Gross_Profit(EGP)'))
 
 # Change Figure-07 format
 fig7.update_layout(showlegend=True, # Show the legend
