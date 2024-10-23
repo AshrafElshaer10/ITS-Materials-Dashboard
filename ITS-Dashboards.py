@@ -368,11 +368,11 @@ fig7.add_trace(go.Indicator(
     name='Total_Expected_Sales(EGP)'))
 
 #fig7.add_trace(go.Indicator(
-#    value=Updated_Database['Total_Expected_Sales(EGP)'].sum(),
- #   number= {'font_color':'lightgrey',
- #            'font_size': 30},
-#   domain={'x': [0, 0.9], 'y': [0.5, 0.6]},
-#    name='Total_Expected_Sales(EGP)'))
+    value=Updated_Database['Total_Expected_Sales(EGP)'].sum(),
+    number= {'font_color':'lightgrey',
+            'font_size': 30},
+    domain={'x': [0, 0.9], 'y': [0.5, 0.6]},
+    name='Total_Expected_Sales(EGP)'))
 
 # Change Figure-07 format
 fig7.update_layout(showlegend=True, # Show the legend
