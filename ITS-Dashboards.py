@@ -716,8 +716,8 @@ fig2.add_trace(go.Scatter(
     y=filtered_data['Cash_in(EGP)'],
     fill='tonexty',  # Fill the area below the line
     mode='lines',
-    name='Cash_in(green)',
-    line=dict(color='red'),
+    name='Cash_in(EGP)',
+    line=dict(color='green'),
     text=filtered_data['Cash_in(EGP)'],
     textposition='top left'
 ))
