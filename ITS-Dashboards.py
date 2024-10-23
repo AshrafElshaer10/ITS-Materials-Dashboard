@@ -374,7 +374,7 @@ fig7.add_trace(go.Indicator(
     delta={'reference': Updated_Database['Total_Expected_Sales(EGP)'].sum()},
     number= {'font_color':'red',
              'font_size': 30},
-    domain={'x': [0.6 , 0.95], 'y': [0.35 , 0.9]},
+    #domain={'x': [0.6 , 0.95], 'y': [0.35 , 0.9]},
     name='Total_Targeted_Gross_Profit(EGP)'))
 
 fig7.add_trace(go.Indicator(
