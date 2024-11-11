@@ -28,7 +28,7 @@ title_style = """
     .title-frame {
         padding: 20px;
         background-color: #008080; /* Change background color as needed */
-        border-radius: 10px; /* Add rounded corners */
+        border-radius: 15px; /* Add rounded corners */
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
     }
 </style>
